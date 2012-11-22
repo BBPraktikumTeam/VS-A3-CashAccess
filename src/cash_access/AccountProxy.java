@@ -1,6 +1,6 @@
 package cash_access;
 
-public final class AccountStub extends Account {
+public final class AccountProxy extends Account {
 
 //	public AccountStub(String Name, String Host, int port) {
 //	}
