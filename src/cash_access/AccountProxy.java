@@ -36,7 +36,7 @@ public final class AccountProxy extends Account {
 		}
 		ReplyMessage rep = ReplyMessageQueue.pop(id);
 		if (rep.exception()) {
-			throw new RuntimeException(((ExceptionMessage) rep).message());
+			((ExceptionMessage) rep).throwAsException();
 		}
 	}
 
