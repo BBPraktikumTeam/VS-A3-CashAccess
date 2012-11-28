@@ -58,7 +58,7 @@ public final class AccountProxy extends Account {
 			if (exc.type().equals("class cash_access.OverdraftException"))
 				throw new OverdraftException(exc.message());
 			else
-				throw new RuntimeException(((ExceptionMessage) rep).message());
+				((ExceptionMessage) rep).throwAsException();
 		}
 	}
 
@@ -76,7 +76,7 @@ public final class AccountProxy extends Account {
 		}
 		ReplyMessage rep = ReplyMessageQueue.pop(id);
 		if (rep.exception()) {
-			throw new RuntimeException(((ExceptionMessage) rep).message());
+			((ExceptionMessage) rep).throwAsException();
 		}
 		return Double.valueOf(((ResultMessage)rep).value());
 	}
