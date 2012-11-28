@@ -17,8 +17,8 @@ public final class AccountSkeleton extends Thread implements Skeleton {
 	public void unmarshal(String msg, Communicator comm) {
 		String[] resultLine = msg.split(",");
 		long msgId = Long.parseLong(resultLine[1]);
-		String method = resultLine[2];
-		String param = resultLine[3];
+		String method = resultLine[3];
+		String param = resultLine[4];
 		if (method.equals("deposit")) {
 			new DepositCaller(comm, msgId, account, param).start();
 		} else if (method.equals("getBalance")) {
