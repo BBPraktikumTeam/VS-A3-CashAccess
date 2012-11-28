@@ -25,7 +25,7 @@ final class WithdrawCaller extends Thread {
 			comm.send(Utilities.join(",", "result", String.valueOf(msgId),
 					"void"));
 		} catch (Exception e) {
-			comm.send(Utilities.join(",", "exception", e.getClass().toString(),
+			comm.send(Utilities.join(",", "exception", String.valueOf(msgId), e.getClass().toString(),
 					e.getMessage()));
 		}
 	}

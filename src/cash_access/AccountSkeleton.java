@@ -26,7 +26,7 @@ public final class AccountSkeleton extends Thread implements Skeleton {
 		} else if (method.equals("withdraw")) {
 			new WithdrawCaller(comm,msgId,account,param).start();
 		} else{
-			// TODO: Error handling
+			System.out.println("Sorry, I don't understand the message :"+msg);
 		}
 	}
 

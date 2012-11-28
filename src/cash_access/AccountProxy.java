@@ -55,7 +55,7 @@ public final class AccountProxy extends Account {
 		ReplyMessage rep = ReplyMessageQueue.pop(id);
 		if (rep.exception()) {
 			ExceptionMessage exc = (ExceptionMessage) rep;
-			if (exc.type().equals("cash_access.OverdraftException"))
+			if (exc.type().equals("class cash_access.OverdraftException"))
 				throw new OverdraftException(exc.message());
 			else
 				throw new RuntimeException(((ExceptionMessage) rep).message());
@@ -67,7 +67,7 @@ public final class AccountProxy extends Account {
 		long id = MessageId.getNewId();
 		Semaphore sem = MessageSemaphores.create(id);
 		RequestMessage req = new RequestMessage(id, name, "getBalance",
-				"");
+				"void");
 		CommunicatorBindings.getCommunicator(address).send(req.toString());
 		try {
 			sem.acquire();
