@@ -3,7 +3,7 @@ package cash_access;
 import mware_lib.Communicator;
 import mware_lib.Skeleton;
 
-public final class AccountSkeleton extends Thread implements Skeleton {
+public final class AccountSkeleton implements Skeleton {
 
 	private final String name;
 	private final Account account;
